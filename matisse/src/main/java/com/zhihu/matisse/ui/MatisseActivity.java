@@ -68,7 +68,7 @@ public class MatisseActivity extends AppCompatActivity implements
 
     private AlbumsSpinner mAlbumsSpinner;
     private AlbumsAdapter mAlbumsAdapter;
-    private TextView mButtonPreview;
+//    private TextView mButtonPreview;
     private TextView mButtonApply;
     private View mContainer;
     private View mEmptyView;
@@ -96,9 +96,9 @@ public class MatisseActivity extends AppCompatActivity implements
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        mButtonPreview = (TextView) findViewById(R.id.button_preview);
+//        mButtonPreview = (TextView) findViewById(R.id.button_preview);
         mButtonApply = (TextView) findViewById(R.id.button_apply);
-        mButtonPreview.setOnClickListener(this);
+//        mButtonPreview.setOnClickListener(this);
         mButtonApply.setOnClickListener(this);
         mContainer = findViewById(R.id.container);
         mEmptyView = findViewById(R.id.empty_view);
@@ -186,11 +186,11 @@ public class MatisseActivity extends AppCompatActivity implements
     private void updateBottomToolbar() {
         int selectedCount = mSelectedCollection.count();
         if (selectedCount == 0) {
-            mButtonPreview.setEnabled(false);
+//            mButtonPreview.setEnabled(false);
             mButtonApply.setText(getString(R.string.button_apply_disable));
             mButtonApply.setEnabled(false);
         } else {
-            mButtonPreview.setEnabled(true);
+//            mButtonPreview.setEnabled(true);
             mButtonApply.setEnabled(true);
             mButtonApply.setText(getString(R.string.button_apply, selectedCount));
         }
@@ -198,11 +198,12 @@ public class MatisseActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.button_preview) {
-            Intent intent = new Intent(this, SelectedPreviewActivity.class);
-            intent.putExtra(BasePreviewActivity.EXTRA_DEFAULT_SELECTED, (ArrayList<Item>) mSelectedCollection.asList());
-            startActivityForResult(intent, REQUEST_CODE_PREVIEW);
-        } else if (v.getId() == R.id.button_apply) {
+//        if (v.getId() == R.id.button_preview) {
+//            Intent intent = new Intent(this, SelectedPreviewActivity.class);
+//            intent.putExtra(BasePreviewActivity.EXTRA_DEFAULT_SELECTED, (ArrayList<Item>) mSelectedCollection.asList());
+//            startActivityForResult(intent, REQUEST_CODE_PREVIEW);
+//        } else
+        if (v.getId() == R.id.button_apply) {
             Intent result = new Intent();
             ArrayList<Uri> selectedUris = (ArrayList<Uri>) mSelectedCollection.asListOfUri();
             result.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION, selectedUris);
